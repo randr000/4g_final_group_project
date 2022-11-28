@@ -2,7 +2,7 @@
 .*
 
 # ignore firebase config
-firebase-config.js
+# firebase-config.js
 
 # track this file .gitignore (i.e. do NOT ignore it)
 !.gitignore
