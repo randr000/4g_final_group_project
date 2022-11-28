@@ -1,6 +1,9 @@
 # ignore all files starting with .
 .*
 
+# ignore firebase config
+firebase-config.js
+
 # track this file .gitignore (i.e. do NOT ignore it)
 !.gitignore
 !.gitpod.yml
