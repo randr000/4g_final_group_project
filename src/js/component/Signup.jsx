@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { db } from '../firebase-config.js';
+import { doc, setDoc } from 'firebase/firestore'
 import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext.jsx';
 
@@ -18,6 +19,8 @@ const Signup = () => {
 
         try {
             await createUser(email, password);
+            // const {user} = UserAuth();
+            // console.log(user);
             navigate('/account');
         } catch (event) {
             setError(event.message);
