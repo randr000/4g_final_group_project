@@ -17,16 +17,15 @@ export const AuthContextProvider = ({children}) => {
     
     const createUser = async (username, email, password) => {
 
-        // await setDoc(doc(db, 'movieLists', user.uid), {
-        //     movies: [imdbID]
-        // });
-
         if ((await getDoc(doc(db, 'usernames', username))).exists()) throw new Error('Username already exists!');
-        console.log('hello')
 
         const newUser = createUserWithEmailAndPassword(auth, email, password);
         const res = await newUser;
-        return console.log(res.user.uid);
+        
+        return await setDoc(doc(db, 'usernames', username), {
+            uid: res.user.uid
+        });
+        
     };
 
     const signIn = (email, password) => {
