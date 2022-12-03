@@ -6,6 +6,7 @@ import { UserAuth } from '../context/AuthContext.jsx';
 
 const Signup = () => {
 
+    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -19,7 +20,7 @@ const Signup = () => {
 
         try {
             // console.log(`before: ${JSON.stringify(user)}`);
-            await createUser(email, password);
+            await createUser(username, email, password);
             // const {user} = UserAuth();
             
             navigate('/account');
@@ -35,6 +36,9 @@ const Signup = () => {
             Sign Up
             <p>Already have an account? <Link className='link-primary' to='/'>Sign In</Link></p>
             <form onSubmit={handleSubmit}>
+                <label htmlFor="username">Username</label>
+                <input onChange={e => setUsername(e.target.value)} type="text" id="username" placeholder="Enter Username"/>
+                <br />
                 <label htmlFor="email">Email</label>
                 <input onChange={e => setEmail(e.target.value)} type="email" id="email" placeholder="Enter Email"/>
                 <br />
@@ -42,6 +46,8 @@ const Signup = () => {
                 <input onChange={e => setPassword(e.target.value)} type="password" id="password" placeholder="Enter Password"/>
                 <br />
                 <button className="btn btn-primary">Sign Up</button>
+                <br />
+                {error && <p className='text-danger'>{error}</p>}
             </form>
         </div>
     );

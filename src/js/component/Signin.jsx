@@ -38,6 +38,8 @@ const Signin = () => {
                 <input onChange={e => setPassword(e.target.value)}type="password" id="password" placeholder="Enter Password"/>
                 <br />
                 <button className="btn btn-primary">Sign In</button>
+                <br />
+                {error && <p className='text-danger'>{error}</p>}
             </form>
         </div>
     );

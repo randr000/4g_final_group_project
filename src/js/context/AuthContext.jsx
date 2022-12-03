@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { auth } from '../firebase-config.js';
 import { db } from '../firebase-config.js';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { 
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
@@ -15,12 +15,14 @@ export const AuthContextProvider = ({children}) => {
     
     const [user, setUser] = useState();
     
-    const createUser = async (email, password) => {
+    const createUser = async (username, email, password) => {
 
         // await setDoc(doc(db, 'movieLists', user.uid), {
         //     movies: [imdbID]
         // });
 
+        if ((await getDoc(doc(db, 'usernames', username))).exists()) throw new Error('Username already exists!');
+        console.log('hello')
 
         const newUser = createUserWithEmailAndPassword(auth, email, password);
         const res = await newUser;
