@@ -21,7 +21,11 @@ export const AuthContextProvider = ({children}) => {
 
         const newUser = createUserWithEmailAndPassword(auth, email, password);
         const res = await newUser;
-        
+
+        await setDoc(doc(db, 'movieLists', res.user.uid), {
+            movies: []
+        });
+
         return await setDoc(doc(db, 'usernames', username), {
             uid: res.user.uid
         });
