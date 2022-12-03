@@ -18,7 +18,7 @@ const Signin = () => {
         try {
             const x = await signIn(email, password);
             // x.then(e => console.log(e));
-            console.log(x.user.uid);
+           
             navigate('/account');
         } catch (e) {
             setError(e.message);

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { db } from '../firebase-config.js';
-import { doc, setDoc } from 'firebase/firestore'
+import { doc, setDoc, getDoc } from 'firebase/firestore'
 import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext.jsx';
 
@@ -10,7 +10,7 @@ const Signup = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
-    const {createUser} = UserAuth();
+    const {createUser, user, logout} = UserAuth();
     const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
@@ -18,14 +18,16 @@ const Signup = () => {
         setError('');
 
         try {
+            // console.log(`before: ${JSON.stringify(user)}`);
             await createUser(email, password);
             // const {user} = UserAuth();
-            // console.log(user);
+            
             navigate('/account');
         } catch (event) {
             setError(event.message);
             console.log(error);
         }
+        // console.log(`after: ${JSON.stringify(user)}`);
     }
 
     return (
