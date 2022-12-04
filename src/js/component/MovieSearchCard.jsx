@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { UserAuth } from '../context/AuthContext.jsx';
 import { db } from '../firebase-config.js';
-import { doc, setDoc, getDoc } from 'firebase/firestore';
+import { doc, arrayUnion, updateDoc } from 'firebase/firestore';
 
 const MovieSearchCard = ({title, year, imdbID, poster}) => {
 
@@ -11,14 +11,9 @@ const MovieSearchCard = ({title, year, imdbID, poster}) => {
 
     async function handleAddFav() {
         try {
-            // const docSnap = await getDoc(db, 'movieLists', user.uid);
-            // if (!docSnap.exists()) {
-            //     await setDoc(doc(db, 'movieLists', user.uid), {
-            //         movies: []
-            //     });
-            // }
-            await setDoc(doc(db, 'movieLists', user.uid), {
-                movies: [imdbID]
+            
+            await updateDoc(doc(db, 'movieLists', user.uid), {
+                movies: arrayUnion(imdbID)
             });
 
             setAddedFav(true);
