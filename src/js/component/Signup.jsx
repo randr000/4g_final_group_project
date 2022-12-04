@@ -19,6 +19,8 @@ const Signup = () => {
         setError('');
 
         try {
+            if (username === '') throw new Error('Username must be longer than one character');
+            if (!RegExp(/^[A-Za-z0-9]*$/).test(username)) throw new Error('Username can only contain letters and numbers');
             await createUser(username, email, password);
             navigate('/account');
 

@@ -32,7 +32,6 @@ const MovieListCard = ({id, userId}) => {
                             <p className="card-text">{`Year: ${movieData.Year}`}</p>
                             <p className="card-text">{`imdbID: ${id}`}</p>
                             <p className="card-text">{movieData.Plot}</p>
-                            {console.log(movieData)}
                         </div>
                     </div>
                     <div className="col col-1 d-flex justify-content-end">
