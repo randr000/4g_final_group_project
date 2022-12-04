@@ -35,7 +35,9 @@ const UsersFavoriteMovies = () => {
     return (
         <>
             <UserButtons />
-            <h1 className='display-1 text-center'>{`${username}'${username.charAt(username.length - 1) === 's' ? '' : 's'} favorite movies`}</h1>
+            <h1 className='display-1 text-center'>
+                {`${username}'${username.charAt(username.length - 1) === 's' ? '' : 's'} favorite movie${movieIds.length > 1 ? 's' : ''}`}
+            </h1>
             {movieIds.map(id => <MovieListCard key={id} id={id} userId={userId} />)}
         </>
     );
