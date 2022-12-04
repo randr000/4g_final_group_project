@@ -12,9 +12,9 @@ const Account = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [movies, setMovies] = useState(false);
 
-    useEffect(() => {
-        console.log(`user: ${!!user}`);
-    }, []);
+    // useEffect(() => {
+    //     console.log(`user: ${!!user}`);
+    // }, []);
 
     const handleSearch = async (event) => {
         try {
@@ -39,7 +39,7 @@ const Account = () => {
 
     return (
         <div>
-            Account:
+            <p>Account: {user && user.displayName}</p>
             <p>User Email: {user && user.email}</p>
 
             <form onSubmit={handleSearch}>

@@ -6,7 +6,8 @@ import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     signOut,
-    onAuthStateChanged
+    onAuthStateChanged,
+    updateProfile
 } from 'firebase/auth';
 
 const UserContext = createContext(null);
@@ -20,7 +21,12 @@ export const AuthContextProvider = ({children}) => {
         if ((await getDoc(doc(db, 'usernames', username))).exists()) throw new Error('Username already exists!');
 
         const newUser = createUserWithEmailAndPassword(auth, email, password);
+
         const res = await newUser;
+
+        await updateProfile(res.user, {
+            displayName: username
+        });
 
         await setDoc(doc(db, 'movieLists', res.user.uid), {
             movies: []
@@ -43,7 +49,7 @@ export const AuthContextProvider = ({children}) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
-            // console.log(`new: ${currentUser.uid}`)
+            
         });
 
         return () => {
