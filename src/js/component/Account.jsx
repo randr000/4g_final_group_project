@@ -12,10 +12,6 @@ const Account = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [movies, setMovies] = useState(false);
 
-    // useEffect(() => {
-    //     console.log(`user: ${!!user}`);
-    // }, []);
-
     const handleSearch = async (event) => {
         try {
             event.preventDefault();

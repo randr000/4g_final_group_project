@@ -2,6 +2,7 @@ import React from "react";
 import Signin from "./Signin.jsx";
 import Signup from "./Signup.jsx";
 import Account from "./Account.jsx";
+import UsersFavoriteMovies from "./UsersFavoriteMovies.jsx";
 import { Route, Routes } from "react-router";
 import { Link } from "react-router-dom";
 import { AuthContextProvider } from "../context/AuthContext.jsx";
@@ -22,6 +23,7 @@ const Home = () => {
 					<Route path='/account' element={
 						<ProtectedRoute><Account /></ProtectedRoute>
 					} />
+					<Route path='/profile/:username' element={<UsersFavoriteMovies />} />
 				</Routes>
 			</AuthContextProvider>
 
