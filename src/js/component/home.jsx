@@ -10,11 +10,13 @@ import ProtectedRoute from "./ProtectedRoute.jsx";
 
 //create your first component
 const Home = () => {
+
 	return (
 		<div>
 			<h1 className="text-center mt-3 fw-bold fs-1">
-				Firebase Auth & Context
+				Favorite Movies App
 			</h1>
+			
 
 			<AuthContextProvider>
 				<Routes>

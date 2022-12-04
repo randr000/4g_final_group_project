@@ -19,16 +19,14 @@ const Signup = () => {
         setError('');
 
         try {
-            // console.log(`before: ${JSON.stringify(user)}`);
             await createUser(username, email, password);
-            // const {user} = UserAuth();
-            
             navigate('/account');
+
         } catch (event) {
             setError(event.message);
             console.log(error);
         }
-        // console.log(`after: ${JSON.stringify(user)}`);
+        
     }
 
     return (

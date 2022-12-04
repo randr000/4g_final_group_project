@@ -3,6 +3,8 @@ import { useParams } from 'react-router';
 import { db } from '../firebase-config.js';
 import { doc, getDoc } from 'firebase/firestore'
 import MovieListCard from './MovieListCard.jsx';
+import UserButtons from './UserButtons.jsx';
+
 
 const UsersFavoriteMovies = () => {
 
@@ -32,6 +34,7 @@ const UsersFavoriteMovies = () => {
 
     return (
         <>
+            <UserButtons />
             <h1 className='display-1 text-center'>{`${username}'${username.charAt(username.length - 1) === 's' ? '' : 's'} favorite movies`}</h1>
             {movieIds.map(id => <MovieListCard key={id} id={id} userId={userId} />)}
         </>

@@ -16,10 +16,9 @@ const Signin = () => {
         setError('');
 
         try {
-            const x = await signIn(email, password);
-            // x.then(e => console.log(e));
-           
+            await signIn(email, password);
             navigate('/account');
+
         } catch (e) {
             setError(e.message);
             console.log(e.message);

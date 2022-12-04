@@ -7,6 +7,14 @@ const MovieListCard = ({id, userId}) => {
     const [movieData, setMovieData] = useState({});
     const {user} = UserAuth();
 
+    let uid;
+
+    try {
+        uid = user.uid;
+    } catch (e) {
+        uid = false;
+    }
+
     useEffect(() => {
             fetchMovieDetails(id).then(res => setMovieData(res));
     }, []);
@@ -28,7 +36,7 @@ const MovieListCard = ({id, userId}) => {
                         </div>
                     </div>
                     <div className="col col-1 d-flex justify-content-end">
-                        <span className='me-3 fw-bold fs-1 text-danger'>{user.uid === userId && 'X'}</span>
+                        <span className='me-3 fw-bold fs-1 text-danger'>{uid === userId && 'X'}</span>
                     </div>
                 </div>
             </div>

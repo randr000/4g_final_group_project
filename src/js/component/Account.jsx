@@ -44,7 +44,8 @@ const Account = () => {
                 <button className='btn btn-info'>Search</button>
             </form>
 
-            <button onClick={handleLogout} className='btn btn-primary'>Logout</button>
+            {user && <button onClick={e => navigate(`/profile/${user.displayName}`)} className='btn btn-primary'>Go to Profile</button>}
+            <button onClick={handleLogout} className='btn btn-danger'>Logout</button>
             <ul className='mt-3 d-flex justify-content-around flex-wrap'>
                 {movies ? movies.map(m => <MovieSearchCard key={m.imdbID} imdbID={m.imdbID} title={m.Title} year={m.Year} poster={m.Poster} />): <p>Movie not found!</p>}
             </ul>
