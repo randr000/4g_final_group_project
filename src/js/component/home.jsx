@@ -4,7 +4,6 @@ import Signup from "./Signup.jsx";
 import Account from "./Account.jsx";
 import UsersFavoriteMovies from "./UsersFavoriteMovies.jsx";
 import { Route, Routes } from "react-router";
-import { Link } from "react-router-dom";
 import { AuthContextProvider } from "../context/AuthContext.jsx";
 import ProtectedRoute from "./ProtectedRoute.jsx";
 

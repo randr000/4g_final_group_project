@@ -11,11 +11,8 @@ const Account = () => {
 
     const [searchTerm, setSearchTerm] = useState('');
     const [movies, setMovies] = useState([]);
-    const [error, setError] = useState('');
 
     const handleSearch = async (event) => {
-        
-        setError('');
 
         try {
             event.preventDefault();
@@ -55,13 +52,6 @@ const Account = () => {
                 <button onClick={handleLogout} className='btn btn-danger ms-1'>Logout</button>
             </div>
 
-            {/* {
-                error ?
-                <p className='text-danger fs-1 fw-bold'>{error}</p> :
-                <ul className='mt-3 d-flex justify-content-around flex-wrap'>
-                    {movies.length > 1 && movies.map(m => <MovieSearchCard key={m.imdbID} imdbID={m.imdbID} title={m.Title} year={m.Year} poster={m.Poster} />)}
-                </ul>
-            } */}
             <ul className='mt-3 d-flex justify-content-around flex-wrap'>
                 {movies ? movies.map(m => <MovieSearchCard key={m.imdbID} imdbID={m.imdbID} title={m.Title} year={m.Year} poster={m.Poster} />): <p className='text-danger fs-1 fw-bold'>Movie not found!</p>}
             </ul>
