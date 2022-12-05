@@ -7,3 +7,11 @@ export async function searchMovies(movie) {
 
     return data;
 }
+
+export async function fetchMovieDetails(movieId) {
+
+    const res = await fetch(`${omdbEndpoint}i=${movieId}&plot=full&apikey=${process.env.REACT_APP_OMDB}`);
+    const data = await res.json();
+
+    return data;
+}

@@ -28,12 +28,12 @@ export const AuthContextProvider = ({children}) => {
             displayName: username
         });
 
-        await setDoc(doc(db, 'movieLists', res.user.uid), {
-            movies: []
+        await setDoc(doc(db, 'usernames', username), {
+            uid: res.user.uid
         });
 
-        return await setDoc(doc(db, 'usernames', username), {
-            uid: res.user.uid
+        return await setDoc(doc(db, 'movieLists', res.user.uid), {
+            movies: []
         });
         
     };
