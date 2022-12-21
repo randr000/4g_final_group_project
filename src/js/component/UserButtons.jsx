@@ -19,19 +19,59 @@ const UserButtons = ()=> {
 
     return (
         <>
-            {
-                user ?
-
-				<div className='d-flex justify-content-center'>
-					<button onClick={e => navigate('/account')} className="btn btn-primary me-2">Search Movies</button>
-					<button onClick={handleLogout} className="btn btn-danger ms-2">Logout</button>
-				</div> :
-
-                <div className='d-flex justify-content-center'>
-                    <button onClick={e => navigate('/')} className="btn btn-primary me-2">Sign In</button>
-					<button onClick={e => navigate('/signup')} className="btn btn-info ms-2">Sign Up</button>
-                </div>
-			}
+          <nav className="navbar fixed-top navbar-light">
+            <div className="container-fluid" id="nav">
+              <a className="navbar-brand" href="/">
+                <h4>YMdB</h4>
+              </a>
+              <button
+                className="btn"
+                data-bs-toggle="collapse"
+                href="#collapseExample"
+                role="button"
+                aria-expanded="false"
+                aria-controls="collapseExample"
+              >
+                <i class="fa fa-bars"></i>
+              </button>
+            </div>
+            <div className="collapse" id="collapseExample">
+              <div className="card card-body">
+                <p className="ms-2">Username: {user && user.displayName}</p>
+                <p className="ms-2">User Email: {user && user.email}</p>
+                <br />
+    
+                {user ? (
+                  <div className="d-flex justify-content-center">
+                    <button
+                      onClick={(e) => navigate("/account")}
+                      className="btn btn-primary me-2"
+                    >
+                      Search Movies
+                    </button>
+                    <button onClick={handleLogout} className="btn btn-dark ms-2">
+                      Logout
+                    </button>
+                  </div>
+                ) : (
+                  <div className="d-flex justify-content-center">
+                    <button
+                      onClick={(e) => navigate("/")}
+                      className="btn btn-primary me-2"
+                    >
+                      Sign In
+                    </button>
+                    <button
+                      onClick={(e) => navigate("/signup")}
+                      className="btn btn-info ms-2"
+                    >
+                      Sign Up
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+          </nav>
         </>
     );
 };

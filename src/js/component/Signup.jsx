@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext.jsx';
+import Background from "./Background.jsx";
 
 const Signup = () => {
 
@@ -30,24 +31,74 @@ const Signup = () => {
     }
 
     return (
-        <div className='text-center fw-bold fs-3 mt-3'>
-            Sign Up
-            <p>Already have an account? <Link className='link-primary' to='/'>Sign In</Link></p>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Username</label>
-                <input onChange={e => setUsername(e.target.value)} type="text" id="username" placeholder="Enter Username"/>
-                <br />
-                <label htmlFor="email">Email</label>
-                <input onChange={e => setEmail(e.target.value)} type="email" id="email" placeholder="Enter Email"/>
-                <br />
-                <label htmlFor="password">Password</label>
-                <input onChange={e => setPassword(e.target.value)} type="password" id="password" placeholder="Enter Password"/>
-                <br />
-                <button className="btn btn-primary">Sign Up</button>
-                <br />
-                {error && <p className='text-danger'>{error}</p>}
-            </form>
-        </div>
+        <>
+          <nav className="navbar fixed-top navbar-light " id="bar">
+            <div className="container-fluid" id="nav">
+              <a className="navbar-brand" href="#">
+                <h4>YMdB</h4>
+              </a>
+    
+              <button
+                className="btn"
+                data-bs-toggle="collapse"
+                href="#collapseExample"
+                role="button"
+                aria-expanded="false"
+                aria-controls="collapseExample"
+              >
+                <i class="fa fa-bars" id="menu"></i>
+              </button>
+            </div>
+            <div className="collapse show" id="collapseExample">
+              <div className="card card-body">
+                <div className="text-center fw-bold fs-2 mt-3">Sign Up</div>
+    
+                <div className="text-center fw-bold fs-5 mt-3">
+                  <form onSubmit={handleSubmit}>
+                    <label htmlFor="username">Username</label>
+                    <input
+                      onChange={(e) => setUsername(e.target.value)}
+                      type="text"
+                      id="username"
+                      placeholder="Enter Username"
+                    />
+                    <br />
+                    <label htmlFor="email">Email</label>
+                    <input
+                      onChange={(e) => setEmail(e.target.value)}
+                      type="email"
+                      id="email"
+                      placeholder="Enter Email"
+                    />
+                    <br />
+                    <label htmlFor="password">Password</label>
+                    <input
+                      onChange={(e) => setPassword(e.target.value)}
+                      type="password"
+                      id="password"
+                      placeholder="Enter Password"
+                    />
+                    <br />
+                    <br />
+                    <button className="btn btn-dark">Sign Up</button>
+                    <br />
+                    <br />
+                    <div className="line"></div>
+                    <div className="text-center fw-bold fs-6 mt-3">
+                      <p>
+                        Already have an account?{" "}
+                        <Link className="link-primary" to="/">
+                          Sign In
+                        </Link>
+                      </p>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </nav>
+          <Background />
+        </>
     );
 };
 
