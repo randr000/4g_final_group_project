@@ -14,12 +14,11 @@ const Home = () => {
 
 	return (
 		<>
-		  {/* <Login /> */}
-	
 		  <div className="none">
 			<AuthContextProvider>
 			  <Routes>
 			  	<Route path='/' element={<Login />} />
+				<Route path='/profile/:username' element={<UsersFavoriteMovies />} />
 				<Route
 				  path="account"
 				  element={

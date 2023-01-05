@@ -71,6 +71,7 @@ const Signin = ({setDisplaySignup, displayLoginCard, setDisplayLoginCard}) => {
                     <br />
                     <button className="btn btn-dark">Sign In</button>
                     <br />
+                    <p className="text-danger fw-bold">{error && error}</p>
                     <br />
                     <div className="line"></div>
                     <div className="text-center fw-bold fs-6 mt-3">
