@@ -1,6 +1,4 @@
 import React from "react";
-import Signin from "./Signin.jsx";
-import Signup from "./Signup.jsx";
 import Account from "./Account.jsx";
 import UsersFavoriteMovies from "./UsersFavoriteMovies.jsx";
 import { Route, Routes } from "react-router";
