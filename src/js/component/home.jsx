@@ -18,7 +18,7 @@ const Home = () => {
 			  	<Route path='/' element={<Login />} />
 				<Route path='/profile/:username' element={<UsersFavoriteMovies />} />
 				<Route
-				  path="account"
+				  path="/account"
 				  element={
 					<ProtectedRoute>
 					  <Account />

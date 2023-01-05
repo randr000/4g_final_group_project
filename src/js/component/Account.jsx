@@ -74,8 +74,9 @@ const Account = () => {
               </div>
             </div>
           </nav>
+          {/* Search bar not showing on top of background image */}
           <BackgroundImg />
-          <div className="container">
+          <div className="container"> 
             <form onSubmit={handleSearch} id="searchBar">
               <div className="d-flex">
                 <label className="ms-2" htmlFor="search-movie-input" id="searchbar">
