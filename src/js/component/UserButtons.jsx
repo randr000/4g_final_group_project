@@ -32,7 +32,7 @@ const UserButtons = ()=> {
                 aria-expanded="false"
                 aria-controls="collapseExample"
               >
-                <i class="fa fa-bars"></i>
+                <i className="fa fa-bars"></i>
               </button>
             </div>
             <div className="collapse" id="collapseExample">
