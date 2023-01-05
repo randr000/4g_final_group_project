@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext.jsx';
 import Background from "./Background.jsx";
 
-const Signup = () => {
+const Signup = ({setDisplaySignup, displayLoginCard, setDisplayLoginCard}) => {
 
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -34,7 +34,7 @@ const Signup = () => {
         <>
           <nav className="navbar fixed-top navbar-light " id="bar">
             <div className="container-fluid" id="nav">
-              <a className="navbar-brand" href="#">
+              <a className="navbar-brand" href="/">
                 <h4>YMdB</h4>
               </a>
     
@@ -46,10 +46,10 @@ const Signup = () => {
                 aria-expanded="false"
                 aria-controls="collapseExample"
               >
-                <i class="fa fa-bars" id="menu"></i>
+                <i class="fa fa-bars" id="menu" onClick={e => setDisplayLoginCard(state => !state)}></i>
               </button>
             </div>
-            <div className="collapse show" id="collapseExample">
+            <div className={`collapse ${displayLoginCard && 'show'}`} id="collapseExample">
               <div className="card card-body">
                 <div className="text-center fw-bold fs-2 mt-3">Sign Up</div>
     
@@ -87,9 +87,12 @@ const Signup = () => {
                     <div className="text-center fw-bold fs-6 mt-3">
                       <p>
                         Already have an account?{" "}
-                        <Link className="link-primary" to="/">
+                        <a
+                          className="link-primary"
+                          onClick={e => setDisplaySignup(false)}
+                        >
                           Sign In
-                        </Link>
+                        </a>
                       </p>
                     </div>
                   </form>
