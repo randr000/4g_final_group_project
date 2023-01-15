@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext.jsx';
-import Background from "./Background.jsx";
+import Hero from './Hero.jsx';
 
 const Signup = ({setDisplaySignup, displayLoginCard, setDisplayLoginCard}) => {
 
@@ -32,11 +32,8 @@ const Signup = ({setDisplaySignup, displayLoginCard, setDisplayLoginCard}) => {
 
     return (
         <>
-          <nav className="navbar fixed-top navbar-light " id="bar">
-            <div className="container-fluid" id="nav">
-              <a className="navbar-brand" href="/">
-                <h4>YMdB</h4>
-              </a>
+          <div className='navbar'>
+          <h1 className='logo'>YMdB</h1>
     
               <button
                 className="btn"
@@ -49,6 +46,7 @@ const Signup = ({setDisplaySignup, displayLoginCard, setDisplayLoginCard}) => {
                 <i class="fa fa-bars" id="menu" onClick={e => setDisplayLoginCard(state => !state)}></i>
               </button>
             </div>
+            <div className='fullScreen'>
             <div className={`collapse ${displayLoginCard && 'show'}`} id="collapseExample">
               <div className="card card-body">
                 <div className="text-center fw-bold fs-2 mt-3">Sign Up</div>
@@ -98,10 +96,11 @@ const Signup = ({setDisplaySignup, displayLoginCard, setDisplayLoginCard}) => {
                     </div>
                   </form>
                 </div>
+                </div>
               </div>
             </div>
-          </nav>
-          <Background />
+          
+          <Hero />
         </>
     );
 };
