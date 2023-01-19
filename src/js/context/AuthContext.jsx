@@ -18,7 +18,7 @@ export const AuthContextProvider = ({children}) => {
     
     const createUser = async (username, email, password) => {
 
-        if ((await getDoc(doc(db, 'usernames', username))).exists()) throw new Error('Username already exists!');
+        if ((await getDoc(doc(db, 'usernames', username))).exists()) throw new Error('Profile name already exists!');
 
         const newUser = createUserWithEmailAndPassword(auth, email, password);
 

@@ -18,8 +18,8 @@ const Signup = ({setDisplaySignup, displayLoginCard, setDisplayLoginCard}) => {
         setError('');
 
         try {
-            if (username === '') throw new Error('Username must be longer than one character');
-            if (!RegExp(/^[A-Za-z0-9]*$/).test(username)) throw new Error('Username can only contain letters and numbers');
+            if (username === '') throw new Error('Profile name must be at least one character');
+            if (!RegExp(/^[A-Za-z0-9]*$/).test(username)) throw new Error('Profile name can only contain letters and numbers');
             await createUser(username, email, password);
             navigate('/account');
 
@@ -53,12 +53,12 @@ const Signup = ({setDisplaySignup, displayLoginCard, setDisplayLoginCard}) => {
     
                 <div className="text-center fw-bold fs-5 mt-3">
                   <form onSubmit={handleSubmit}>
-                    <label htmlFor="username">Username</label>
+                    <label htmlFor="username">Profile Name</label>
                     <input
                       onChange={(e) => setUsername(e.target.value)}
                       type="text"
                       id="username"
-                      placeholder="Enter Username"
+                      placeholder="Enter Profile Name"
                     />
                     <br />
                     <label htmlFor="email">Email</label>
