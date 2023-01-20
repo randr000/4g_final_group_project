@@ -1,10 +1,13 @@
-# Hello World with React boilerplate
+# My Favorite Movies App
 <p>
-  <a href="https://gitpod.io#https://github.com/4GeeksAcademy/react-hello.git"><img src="https://raw.githubusercontent.com/4GeeksAcademy/react-hello/master/open-in-gitpod.svg?sanitize=true" />
+  <a
+    href="https://4g-final-group-project.vercel.app/"
+  >
+    Link to Live Website
   </a>
 </p>
 
-This template is similar to create-react-app but it's meant for 4Geeks Academy students.
+Our website is an app where a user can sign up and keep track of their favorite movies. It uses the api from <a href="https://www.omdbapi.com/">OMDb API</a>.
 
 ##### Download the boilerplate using git
 
