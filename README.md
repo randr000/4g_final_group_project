@@ -7,38 +7,31 @@
   </a>
 </p>
 
-Our website is an app where a user can sign up and keep track of their favorite movies. It uses the api from <a href="https://www.omdbapi.com/">OMDb API</a>.
+Our website is an app where a user can sign up and keep track of their favorite movies. It uses the api from <a href="https://www.omdbapi.com/">OMDb API</a>. A user can also share with others what their favorite movies are by sharing their profile name.
 
-##### Download the boilerplate using git
+## Functionality
 
-```
-$ git clone https://github.com/4GeeksAcademy/react-hello.git
-$ cd react-hello
-```
+#### Sign-in / Sign-up
 
-##### and install the npm package:
-```
-$ npm install
-```
+<img src="README_IMGs/signin.PNG">
+<img src="README_IMGs/signup.PNG">
 
-## Start coding!
+#### Search and Add Favorite Movies
 
-For Windows, Mac, Linux or Gitpod, start the webpack server with live reload:
-- `$ npm run start`
+<img src="README_IMGs/search.PNG">
 
-You can update the `styles/index.css` or `js/index.js` depending on your needs.
-Add more files into your, `./src/js/components` or styles folder as you need them.
+#### Go To Profile
 
-## Publish your website!
+<img src="README_IMGs/gotoprofile.PNG">
 
-This boilerplate is 100% compatible with the free [github pages](https://pages.github.com/) and [vercel](https://vercel.com/) hosting.
+#### Profile Signed In
 
-It takes just 2 minutes to deploy, [click here to start the process](https://github.com/4GeeksAcademy/react-hello/blob/master/docs/DEPLOY.md).
+<img src="README_IMGs/profile-signedin.PNG">
 
-## Other features
+#### Profile Signed Out
 
-- Automatic Code Formatting: Use of [Prettier](https://prettier.io/) for automatic code indentation and formatting.
-- Error reporting: Use of [eslint](https://eslint.org/) for better error reporting.
-- Hot Deploy: Use of [Webpack Development Server](https://webpack.js.org/configuration/dev-server/) for hot deploy and live reload.
-- One-command publish of the code to github pages with `npm run deploy:github`.
-- Babel 7 (really fast).
+<img src="README_IMGs/profile-notsignedin.PNG">
+
+#### Go To Search
+
+<img src="README_IMGs/gotosearch.PNG">
